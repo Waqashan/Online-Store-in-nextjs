@@ -1,0 +1,182 @@
+export const mockBanners = [
+  {
+    id: "ban-1",
+    title: "Royal Sidr Honey & Organic Harvest",
+    subtitle: "100% Raw Wild Mountain Honey",
+    badge: "Seasonal Harvest",
+    image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=1600&q=80",
+    link: "/shop?category=organics",
+    status: "Active",
+    displayOrder: 1,
+  },
+  {
+    id: "ban-2",
+    title: "Elixir de Royale Haute Parfumerie",
+    subtitle: "Extrait de Parfum Collection 2026",
+    badge: "Exclusive Launch",
+    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=1600&q=80",
+    link: "/shop?category=perfumes",
+    status: "Active",
+    displayOrder: 2,
+  },
+  {
+    id: "ban-3",
+    title: "18K Solid Gold Automatic Chronographs",
+    subtitle: "Swiss Tourbillon Horology",
+    badge: "Masterpiece",
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1600&q=80",
+    link: "/shop?category=watches",
+    status: "Active",
+    displayOrder: 3,
+  },
+];
+
+export const mockCustomers = [
+  {
+    id: "cust-1",
+    name: "Eleanor Vance",
+    email: "eleanor.vance@luxury.com",
+    phone: "+1 (555) 234-5678",
+    ordersCount: 8,
+    totalSpent: 4250.00,
+    role: "VIP Customer",
+    joinedDate: "2025-11-12",
+    status: "Active",
+  },
+  {
+    id: "cust-2",
+    name: "Sheikh Hamdan Al-Maktoum",
+    email: "hamdan@royal.ae",
+    phone: "+971 50 123 4567",
+    ordersCount: 14,
+    totalSpent: 18900.00,
+    role: "Royal VIP",
+    joinedDate: "2025-08-04",
+    status: "Active",
+  },
+  {
+    id: "cust-3",
+    name: "Sophia Kensington",
+    email: "sophia.k@couture.co.uk",
+    phone: "+44 20 7946 0912",
+    ordersCount: 5,
+    totalSpent: 3120.00,
+    role: "Customer",
+    joinedDate: "2026-01-19",
+    status: "Active",
+  },
+  {
+    id: "cust-4",
+    name: "Alexander Wright",
+    email: "a.wright@techexec.io",
+    phone: "+1 (415) 890-1234",
+    ordersCount: 3,
+    totalSpent: 1450.00,
+    role: "Customer",
+    joinedDate: "2026-03-02",
+    status: "Active",
+  },
+];
+
+export const mockBlogs = [
+  {
+    id: "blog-1",
+    title: "The Health Secrets of Pure Wild Sidr Honey",
+    slug: "health-secrets-wild-sidr-honey",
+    category: "Organics & Wellness",
+    author: "Dr. Alistair Vance",
+    date: "2026-06-15",
+    status: "Published",
+    image: "https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80",
+    content: "Sidr honey harvested from ancient Hadramaut mountain valleys possesses potent antibacterial properties...",
+  },
+  {
+    id: "blog-2",
+    title: "How to Choose Your Signature Niche Fragrance",
+    slug: "how-to-choose-signature-niche-fragrance",
+    category: "Haute Parfumerie",
+    author: "Oud Master Tariq",
+    date: "2026-07-01",
+    status: "Published",
+    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=800&q=80",
+    content: "Selecting a bespoke perfume involves understanding fragrance notes, sillage, and personal skin chemistry...",
+  },
+];
+
+export const mockPages = [
+  {
+    id: "pg-1",
+    title: "About Aureate Luxe",
+    slug: "about-us",
+    status: "Published",
+    lastUpdated: "2026-05-10",
+  },
+  {
+    id: "pg-2",
+    title: "Authenticity & Heritage Guarantee",
+    slug: "authenticity-guarantee",
+    status: "Published",
+    lastUpdated: "2026-06-01",
+  },
+  {
+    id: "pg-3",
+    title: "Privacy Policy & Royal Discretion",
+    slug: "privacy-policy",
+    status: "Published",
+    lastUpdated: "2026-01-15",
+  },
+];
+
+export const mockShippingRates = [
+  {
+    id: "ship-1",
+    zone: "Domestic Express (Pakistan)",
+    carrier: "TCS / Leopards Courier",
+    estimatedDays: "1-2 Business Days",
+    rate: 0.00,
+    freeShippingThreshold: 5000,
+    status: "Active",
+  },
+  {
+    id: "ship-2",
+    zone: "GCC & Middle East Air Express",
+    carrier: "DHL Express Royal",
+    estimatedDays: "2-4 Business Days",
+    rate: 45.00,
+    freeShippingThreshold: 500.00,
+    status: "Active",
+  },
+  {
+    id: "ship-3",
+    zone: "Worldwide VIP Air Courier",
+    carrier: "FedEx International Priority",
+    estimatedDays: "3-5 Business Days",
+    rate: 75.00,
+    freeShippingThreshold: 1000.00,
+    status: "Active",
+  },
+];
+
+export const mockTaxes = [
+  {
+    id: "tax-1",
+    region: "Pakistan Sales Tax (GST)",
+    ratePercentage: 17.0,
+    applyToShipping: false,
+    status: "Active",
+  },
+  {
+    id: "tax-2",
+    region: "GCC VAT Standard",
+    ratePercentage: 5.0,
+    applyToShipping: true,
+    status: "Active",
+  },
+  {
+    id: "tax-3",
+    region: "EU VAT Luxury Import",
+    ratePercentage: 20.0,
+    applyToShipping: true,
+    status: "Active",
+  },
+];

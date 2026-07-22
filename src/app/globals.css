@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-heading: 'Cormorant Garamond', serif, Georgia;
+    --font-body: 'Montserrat', sans-serif, system-ui;
+    
+    --gold-primary: #D4AF37;
+    --gold-light: #F3E5AB;
+    --gold-dark: #B8860B;
+    --gold-gradient: linear-gradient(135deg, #D4AF37 0%, #AA7C11 50%, #855806 100%);
+    
+    --bg-light: #FFFFFF;
+    --bg-card-light: #FAFAFB;
+    --bg-card-hover: #F3F4F6;
+  }
+
+  body {
+    background-color: #FFFFFF;
+    color: #111827;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: 0.04em;
+  }
+}
+
+.use-font-body {
+  font-family: var(--font-body) !important;
+}
+
+/* Custom Utilities for Gold & Crisp White Luxury Aesthetics */
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #E5C158 0%, #D4AF37 50%, #B8860B 100%);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #B8860B 0%, #D4AF37 50%, #996515 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gold-gradient {
+  border-image: linear-gradient(135deg, #FFE082, #D4AF37, #B8860B) 1;
+}
+
+.gold-glow {
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+}
+
+.gold-glow-lg {
+  box-shadow: 0 15px 45px rgba(212, 175, 55, 0.25);
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+.glass-panel-dark {
+  background: rgba(17, 24, 39, 0.95);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F9FAFB;
+}
+::-webkit-scrollbar-thumb {
+  background: #D1D5DB;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
