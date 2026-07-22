@@ -104,12 +104,7 @@ export default function Navbar() {
           </button>
 
           {/* Logo & Brand */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-amber-600 via-amber-400 to-amber-200 p-0.5 shadow-md group-hover:scale-105 transition-transform duration-300">
-              <div className="w-full h-full bg-neutral-950 rounded-full flex items-center justify-center">
-                <span className="font-heading text-lg font-bold text-amber-400 tracking-wider">A</span>
-              </div>
-            </div>
+          <Link href="/" className="flex items-center gap-1 group">
             <div>
               <span className="font-heading text-xl sm:text-2xl font-bold tracking-widest text-neutral-900 block leading-none">
                 {store.name}

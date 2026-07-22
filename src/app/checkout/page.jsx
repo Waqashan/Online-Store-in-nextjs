@@ -307,7 +307,7 @@ export default function CheckoutPage() {
 
           {/* Summary Column */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="bg-white rounded-2xl p-6 border border-amber-500/30 shadow-md sticky top-24 space-y-4">
+            <div className="bg-white rounded-2xl p-6 border border-amber-500/30 shadow-md lg:sticky lg:top-24 space-y-4">
               <h3 className="font-heading text-sm font-bold text-neutral-900 uppercase tracking-widest border-b border-neutral-100 pb-3">
                 Order Summary ({cart.length} items)
               </h3>
@@ -318,9 +318,9 @@ export default function CheckoutPage() {
                     <img src={item.image} alt={item.name} className="w-12 h-12 object-cover rounded-lg border border-neutral-200 shrink-0" />
                     <div className="flex-1 min-w-0">
                       <div className="font-bold text-neutral-900 truncate">{item.name}</div>
-                      <div className="text-[10px] text-neutral-500 font-mono">Qty: {item.quantity} × ${item.unitPrice}</div>
+                      <div className="text-[10px] text-neutral-500 font-mono">Qty: {item.quantity} × Rs. {item.unitPrice.toLocaleString()}</div>
                     </div>
-                    <div className="font-bold text-amber-700">${(item.quantity * item.unitPrice).toFixed(2)}</div>
+                    <div className="font-medium text-amber-700">Rs. {(item.quantity * item.unitPrice).toLocaleString()}</div>
                   </div>
                 ))}
               </div>
@@ -328,24 +328,24 @@ export default function CheckoutPage() {
               <div className="space-y-2 text-xs pt-4 border-t border-neutral-100 text-neutral-700 font-medium">
                 <div className="flex justify-between">
                   <span className="text-neutral-500">Subtotal</span>
-                  <span className="font-bold text-neutral-900">{currency.symbol}{cartSubtotal.toFixed(2)}</span>
+                  <span className="font-medium text-neutral-900">Rs. {cartSubtotal.toLocaleString()}</span>
                 </div>
 
                 {discountAmount > 0 && (
                   <div className="flex justify-between text-emerald-700 font-bold">
                     <span>Discount</span>
-                    <span>-{currency.symbol}{discountAmount.toFixed(2)}</span>
+                    <span>-Rs. {discountAmount.toLocaleString()}</span>
                   </div>
                 )}
 
                 <div className="flex justify-between">
                   <span className="text-neutral-500">Express Courier Shipping</span>
-                  <span>{shippingFee === 0 ? <span className="text-emerald-700 font-bold">FREE</span> : `${currency.symbol}${shippingFee}`}</span>
+                  <span>{shippingFee === 0 ? <span className="text-emerald-700 font-bold">FREE</span> : `Rs. ${shippingFee}`}</span>
                 </div>
 
                 <div className="flex justify-between text-lg font-bold text-neutral-900 pt-2 border-t border-neutral-200">
                   <span className="font-heading">Total Payable</span>
-                  <span className="font-heading text-amber-700">{currency.symbol}{cartTotal.toFixed(2)}</span>
+                  <span className="font-heading font-semibold text-amber-700">Rs. {cartTotal.toLocaleString()}</span>
                 </div>
               </div>
 
