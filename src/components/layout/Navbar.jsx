@@ -3,15 +3,15 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { 
-  ShoppingBag, 
-  Heart, 
-  Search, 
-  Menu, 
-  X, 
-  ChevronDown, 
-  Sparkles, 
-  Truck, 
+import {
+  ShoppingBag,
+  Heart,
+  Search,
+  Menu,
+  X,
+  ChevronDown,
+  Sparkles,
+  Truck,
   Globe,
   SlidersHorizontal,
   User,
@@ -70,8 +70,8 @@ export default function Navbar() {
               <span className="hidden sm:inline">|</span>
               <div className="flex items-center gap-1 hidden sm:flex">
                 <Globe className="w-3 h-3 text-amber-400" />
-                <select 
-                  value={currency.code} 
+                <select
+                  value={currency.code}
                   onChange={(e) => {
                     const selected = store.supportedCurrencies.find(c => c.code === e.target.value);
                     if (selected) setCurrency(selected);
@@ -93,9 +93,9 @@ export default function Navbar() {
       {/* Main Navbar */}
       <nav className={`transition-all duration-300 ${isScrolled ? "bg-white/95 backdrop-blur-md shadow-md py-3 border-b border-amber-500/20" : "bg-white/90 backdrop-blur-sm border-b border-neutral-200 py-4"}`}>
         <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 flex items-center justify-between">
-          
+
           {/* Mobile Menu Button */}
-          <button 
+          <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden p-2 text-neutral-700 hover:text-amber-600 transition"
             aria-label="Toggle menu"
@@ -109,29 +109,29 @@ export default function Navbar() {
               <span className="font-heading text-xl sm:text-2xl font-bold tracking-widest text-neutral-900 block leading-none">
                 {store.name}
               </span>
-              <span className="text-[9px] uppercase tracking-[0.25em] text-amber-700 font-semibold block mt-0.5">
+              {/* <span className="text-[9px] uppercase tracking-[0.25em] text-amber-700 font-semibold block mt-0.5">
                 {store.logo.subtext}
-              </span>
+              </span> */}
             </div>
           </Link>
 
           {/* Desktop Navigation Links with Mega Menu */}
           <div className="hidden lg:flex items-center gap-8">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className={`text-sm font-semibold transition-colors ${pathname === "/" ? "text-amber-600" : "text-neutral-700 hover:text-amber-600"}`}
             >
               Home
             </Link>
 
             {/* Categories Mega Dropdown */}
-            <div 
+            <div
               className="relative"
               onMouseEnter={() => setIsMegaMenuOpen(true)}
               onMouseLeave={() => setIsMegaMenuOpen(false)}
             >
-              <Link 
-                href="/shop" 
+              <Link
+                href="/shop"
                 onClick={() => setIsMegaMenuOpen(false)}
                 className={`text-sm font-semibold flex items-center gap-1.5 transition-colors ${pathname.startsWith("/shop") ? "text-amber-600" : "text-neutral-700 hover:text-amber-600"}`}
               >
@@ -145,7 +145,7 @@ export default function Navbar() {
                   <div className="grid grid-cols-4 gap-6">
                     {categories.map((cat) => (
                       <div key={cat.id} className="space-y-3">
-                        <Link 
+                        <Link
                           href={`/shop?category=${cat.slug}`}
                           onClick={() => setIsMegaMenuOpen(false)}
                           className="font-heading text-sm font-bold text-neutral-900 hover:text-amber-600 flex items-center gap-2 border-b border-amber-500/20 pb-2 uppercase tracking-wider"
@@ -155,7 +155,7 @@ export default function Navbar() {
                         <ul className="space-y-1.5 text-xs text-neutral-600 font-semibold">
                           {cat.subcategories.map((sub) => (
                             <li key={sub.id}>
-                              <Link 
+                              <Link
                                 href={`/shop?category=${cat.slug}&subcategory=${sub.slug}`}
                                 onClick={() => setIsMegaMenuOpen(false)}
                                 className="hover:text-amber-600 transition-colors flex items-center justify-between hover:translate-x-1 duration-200"
@@ -175,8 +175,8 @@ export default function Navbar() {
                       <Sparkles className="w-4 h-4 text-amber-600" />
                       Dynamic taxonomy managed seamlessly from Admin Dashboard
                     </span>
-                    <Link 
-                      href="/shop" 
+                    <Link
+                      href="/shop"
                       onClick={() => setIsMegaMenuOpen(false)}
                       className="px-4 py-1.5 bg-gradient-to-r from-amber-500 to-amber-600 text-neutral-950 font-bold rounded-lg hover:brightness-110 transition shadow-sm"
                     >
@@ -187,22 +187,22 @@ export default function Navbar() {
               )}
             </div>
 
-            <Link 
-              href="/track-order" 
+            <Link
+              href="/track-order"
               className="text-sm font-semibold text-neutral-700 hover:text-amber-600 transition-colors"
             >
               Track Order
             </Link>
 
-            <Link 
-              href="/about" 
+            <Link
+              href="/about"
               className={`text-sm font-semibold transition-colors ${pathname === "/about" ? "text-amber-600" : "text-neutral-700 hover:text-amber-600"}`}
             >
               About Us
             </Link>
 
-            <Link 
-              href="/contact" 
+            <Link
+              href="/contact"
               className={`text-sm font-semibold transition-colors ${pathname === "/contact" ? "text-amber-600" : "text-neutral-700 hover:text-amber-600"}`}
             >
               Contact
@@ -211,7 +211,7 @@ export default function Navbar() {
 
           {/* Action Icons (Search, User Login, Wishlist, Cart) */}
           <div className="flex items-center gap-4 sm:gap-6">
-            <button 
+            <button
               onClick={() => setIsSearchOpen(!isSearchOpen)}
               className="p-2 text-neutral-700 hover:text-amber-600 transition hover:scale-110"
               aria-label="Search"
@@ -219,8 +219,8 @@ export default function Navbar() {
               <Search className="w-5 h-5" />
             </button>
 
-            <Link 
-              href="/login" 
+            <Link
+              href="/login"
               className="p-2 text-neutral-700 hover:text-amber-600 transition hover:scale-110 flex items-center gap-1"
               aria-label="User Sign In"
               title="Customer Login / Register"
@@ -229,8 +229,8 @@ export default function Navbar() {
               <span className="hidden xl:inline text-xs font-semibold">Sign In</span>
             </Link>
 
-            <Link 
-              href="/shop?wishlist=true" 
+            <Link
+              href="/shop?wishlist=true"
               className="relative p-2 text-neutral-700 hover:text-amber-600 transition hover:scale-110"
               aria-label="Wishlist"
             >
@@ -242,7 +242,7 @@ export default function Navbar() {
               )}
             </Link>
 
-            <button 
+            <button
               onClick={() => setIsCartOpen(true)}
               className="relative p-2.5 bg-gradient-to-r from-amber-500 to-amber-600 text-neutral-950 font-bold rounded-xl shadow-md hover:scale-105 transition-transform flex items-center gap-2"
               aria-label="Cart"
@@ -264,7 +264,7 @@ export default function Navbar() {
           <div className="max-w-4xl mx-auto px-4 mt-3 pb-3 animate-fadeIn">
             <form onSubmit={handleSearchSubmit} className="relative flex items-center">
               <Search className="w-5 h-5 absolute left-4 text-amber-600" />
-              <input 
+              <input
                 type="text"
                 placeholder="Search Sidr Honey, Oud Perfumes, 24K Gold Serums, Watches, Suits..."
                 value={searchQuery}
@@ -272,7 +272,7 @@ export default function Navbar() {
                 className="w-full bg-white border-2 border-amber-500/40 rounded-xl py-3 pl-12 pr-24 text-neutral-900 text-sm focus:outline-none focus:border-amber-600 shadow-xl"
                 autoFocus
               />
-              <button 
+              <button
                 type="submit"
                 className="absolute right-2 px-4 py-1.5 bg-amber-500 text-neutral-950 font-bold text-xs rounded-lg hover:bg-amber-400 transition"
               >
@@ -286,43 +286,43 @@ export default function Navbar() {
         {isMobileMenuOpen && (
           <div className="lg:hidden bg-white border-t border-neutral-200 px-4 py-6 mt-3 space-y-4 max-h-[80vh] overflow-y-auto shadow-2xl">
             <div className="flex flex-col gap-3">
-              <Link 
-                href="/" 
+              <Link
+                href="/"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-base font-semibold text-amber-600 py-1"
               >
                 Home
               </Link>
-              <Link 
-                href="/shop" 
+              <Link
+                href="/shop"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-base font-semibold text-neutral-800 hover:text-amber-600 py-1"
               >
                 All Collections & Shop
               </Link>
-              <Link 
-                href="/track-order" 
+              <Link
+                href="/track-order"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-base font-semibold text-neutral-800 hover:text-amber-600 py-1"
               >
                 Track Order
               </Link>
-              <Link 
-                href="/about" 
+              <Link
+                href="/about"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-base font-semibold text-neutral-800 hover:text-amber-600 py-1"
               >
                 About Us
               </Link>
-              <Link 
-                href="/contact" 
+              <Link
+                href="/contact"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-base font-semibold text-neutral-800 hover:text-amber-600 py-1"
               >
                 Contact Us
               </Link>
-              <Link 
-                href="/login" 
+              <Link
+                href="/login"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="text-base font-semibold text-neutral-800 hover:text-amber-600 py-1 flex items-center gap-2"
               >
@@ -337,7 +337,7 @@ export default function Navbar() {
               </div>
               {categories.map((cat) => (
                 <div key={cat.id} className="space-y-1">
-                  <Link 
+                  <Link
                     href={`/shop?category=${cat.slug}`}
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block text-sm text-neutral-700 font-medium hover:text-amber-600"
