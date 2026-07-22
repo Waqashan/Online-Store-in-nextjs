@@ -52,7 +52,8 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 transition-all duration-300">
+    <>
+      <header className="sticky top-0 z-50 transition-all duration-300">
       {/* Top Announcement Bar */}
       {store.announcement.enabled && (
         <div className="bg-gradient-to-r from-neutral-900 via-amber-950 to-neutral-900 text-amber-200 text-xs py-2 px-4 border-b border-amber-500/20">
@@ -281,75 +282,148 @@ export default function Navbar() {
             </form>
           </div>
         )}
+      </nav>
+    </header>
 
-        {/* Mobile Drawer */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-neutral-200 px-4 py-6 mt-3 space-y-4 max-h-[80vh] overflow-y-auto shadow-2xl">
-            <div className="flex flex-col gap-3">
-              <Link
-                href="/"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-base font-semibold text-amber-600 py-1"
-              >
-                Home
-              </Link>
-              <Link
-                href="/shop"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-base font-semibold text-neutral-800 hover:text-amber-600 py-1"
-              >
-                All Collections & Shop
-              </Link>
-              <Link
-                href="/track-order"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-base font-semibold text-neutral-800 hover:text-amber-600 py-1"
-              >
-                Track Order
-              </Link>
-              <Link
-                href="/about"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-base font-semibold text-neutral-800 hover:text-amber-600 py-1"
-              >
-                About Us
-              </Link>
-              <Link
-                href="/contact"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-base font-semibold text-neutral-800 hover:text-amber-600 py-1"
-              >
-                Contact Us
-              </Link>
-              <Link
-                href="/login"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-base font-semibold text-neutral-800 hover:text-amber-600 py-1 flex items-center gap-2"
-              >
-                <User className="w-4 h-4 text-amber-600" />
-                Customer Sign In / Register
-              </Link>
-            </div>
-
-            <div className="pt-4 border-t border-neutral-200 space-y-2">
-              <div className="font-heading text-xs font-bold text-amber-700 uppercase tracking-widest mb-2">
-                Main Categories
-              </div>
-              {categories.map((cat) => (
-                <div key={cat.id} className="space-y-1">
-                  <Link
-                    href={`/shop?category=${cat.slug}`}
+    {/* Mobile Drawer */}
+    {isMobileMenuOpen && (
+      <div className="fixed inset-0 z-[9999] lg:hidden">
+            {/* Backdrop */}
+            <div 
+              className="fixed inset-0 bg-neutral-950/60 backdrop-blur-sm transition-opacity duration-300"
+              onClick={() => setIsMobileMenuOpen(false)}
+            />
+            
+            {/* Drawer Content */}
+            <div className="fixed top-0 left-0 bottom-0 w-[320px] max-w-[85vw] bg-white h-full shadow-2xl flex flex-col justify-between overflow-y-auto animate-slideInLeft border-r border-amber-500/10">
+              
+              <div className="p-6 space-y-6">
+                {/* Header */}
+                <div className="flex items-center justify-between border-b border-neutral-100 pb-4">
+                  <div>
+                    <span className="font-heading text-xl font-bold tracking-widest text-neutral-900 block leading-none">
+                      {store.name}
+                    </span>
+                    <span className="text-[8px] uppercase tracking-[0.2em] text-amber-700 font-semibold block mt-1">
+                      Luxury Collections
+                    </span>
+                  </div>
+                  <button 
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="block text-sm text-neutral-700 font-medium hover:text-amber-600"
+                    className="p-2 rounded-xl bg-neutral-50 hover:bg-neutral-100 border border-neutral-200 text-neutral-700 transition"
                   >
-                    {cat.name}
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+
+                {/* Primary Navigation Links */}
+                <div className="flex flex-col gap-1 text-sm font-semibold text-neutral-800">
+                  <Link
+                    href="/"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-amber-50/50 hover:text-amber-600 transition"
+                  >
+                    <Sparkles className="w-4 h-4 text-amber-500" />
+                    <span>Home Page</span>
+                  </Link>
+
+                  <Link
+                    href="/shop"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-amber-50/50 hover:text-amber-600 transition"
+                  >
+                    <ShoppingBag className="w-4 h-4 text-amber-500" />
+                    <span>All Collections & Shop</span>
+                  </Link>
+
+                  <Link
+                    href="/track-order"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-amber-50/50 hover:text-amber-600 transition"
+                  >
+                    <Truck className="w-4 h-4 text-amber-500" />
+                    <span>Track Your Package</span>
+                  </Link>
+
+                  <Link
+                    href="/about"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-amber-50/50 hover:text-amber-600 transition"
+                  >
+                    <SlidersHorizontal className="w-4 h-4 text-amber-500" />
+                    <span>Our Sourcing Story</span>
+                  </Link>
+
+                  <Link
+                    href="/contact"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-3 p-2.5 rounded-xl hover:bg-amber-50/50 hover:text-amber-600 transition"
+                  >
+                    <Globe className="w-4 h-4 text-amber-500" />
+                    <span>Contact Help Desk</span>
+                  </Link>
+
+                  <Link
+                    href="/login"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-3 p-2.5 rounded-xl bg-neutral-50 hover:bg-amber-500/10 hover:text-amber-900 border border-neutral-200 mt-2 transition"
+                  >
+                    <User className="w-4 h-4 text-amber-600" />
+                    <span>Patron Login / Sign In</span>
                   </Link>
                 </div>
-              ))}
+
+                {/* Categories Accordion */}
+                <div className="pt-4 border-t border-neutral-100 space-y-3">
+                  <div className="font-heading text-xs font-bold text-amber-700 uppercase tracking-widest pl-2">
+                    Browse Categories
+                  </div>
+                  <div className="space-y-2">
+                    {categories.map((cat) => (
+                      <div key={cat.id} className="rounded-xl border border-neutral-100 bg-neutral-50/40 overflow-hidden animate-fadeIn">
+                        <div className="p-3 flex justify-between items-center bg-neutral-50/70 border-b border-neutral-100">
+                          <Link
+                            href={`/shop?category=${cat.slug}`}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="text-xs font-bold text-neutral-800 hover:text-amber-600 uppercase tracking-wider"
+                          >
+                            {cat.name}
+                          </Link>
+                        </div>
+                        {cat.subcategories && cat.subcategories.length > 0 && (
+                          <div className="p-2.5 space-y-1.5 text-xs text-neutral-600 font-semibold bg-white/70">
+                            {cat.subcategories.map((sub) => (
+                              <Link
+                                key={sub.id}
+                                href={`/shop?category=${cat.slug}&subcategory=${sub.slug}`}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="block py-1 px-2 rounded hover:bg-amber-50/30 hover:text-amber-600 transition-colors"
+                              >
+                                {sub.name}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Footer inside Drawer */}
+              <div className="p-6 bg-neutral-50 border-t border-neutral-100 text-center space-y-2">
+                <p className="text-[10px] text-neutral-400 font-semibold uppercase tracking-wider">
+                  &copy; {new Date().getFullYear()} {store.name}
+                </p>
+                <div className="text-[9px] text-neutral-500 font-medium">
+                  Premium Organics & Luxury Goods Dispatch
+                </div>
+              </div>
+
             </div>
           </div>
         )}
-      </nav>
-    </header>
+    </>
   );
 }
